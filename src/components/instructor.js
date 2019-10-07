@@ -1,4 +1,5 @@
 import React from 'react';
+import GraphData from './GraphData.js';
 
 export default class Instructor extends React.Component {
   render() {
@@ -6,6 +7,7 @@ export default class Instructor extends React.Component {
       <div>
         <header>Hands of Five</header>
         <h1>Instructor View</h1>
+        <GraphData data={this.props.data}></GraphData>
         <form>
           <label>Topic:
         <input type="text"></input>
