@@ -1,3 +1,9 @@
+resources:
+http://react.tips/radio-buttons-in-react-16/
+
+https://canvasjs.com/react-charts/chart-index-data-label/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

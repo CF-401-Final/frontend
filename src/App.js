@@ -1,25 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Instructor from './components/instructor.js';
+import Student from './components/student.js';
+
+// import './App.css';
+import Sockette from 'sockette';
+
+const socket = new Sockette('wss://ux9oyskfdg.execute-api.us-east-1.amazonaws.com/dev', {
+  timeout: 5e3,
+  maxAttempts: 10,
+  onopen: e => console.log('Connected!', e),
+  onmessage: e => console.log('Recieved', e),
+  onreconnect: e => console.log('Reconnecting...', e),
+  onmaximum: e => console.log('Stop Attempting!', e),
+  onclose: e => console.log('Closed!', e),
+  onerror: e => console.log('Error:', e)
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/instructor">Instructor View</Link>
+            </li>
+            <li>
+              <Link to="/student">Student View</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/student">
+            <Student />
+          </Route>
+          <Route path="/instructor">
+            <Instructor />
+          </Route>
+
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
