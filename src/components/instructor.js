@@ -1,4 +1,10 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 import GraphData from './GraphData.js';
 import BarGraph from './BarGraph.js';
 
@@ -22,21 +28,29 @@ export default class Instructor extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h1>Instructor View</h1>
-        <h2>{this.props.data.topic}</h2>
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col>
+            <h1>Instructor View</h1>
+            <h2>{this.props.data.topic}</h2>
 
-        <BarGraph data={this.props.data}></BarGraph>
-        <GraphData data={this.props.data}></GraphData>
+            <BarGraph data={this.props.data}></BarGraph>
 
-        <form type="submit" onSubmit={this.handle} name="topic" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: 300 }}>
-          <label>Topic:
-        <input type="text" name="topic"></input>
-          </label>
-          <button type="submit" >Post</button>
-        </form>
 
-      </div>
+            <Form type="submit" onSubmit={this.handle} name="topic" >
+              <Form.Row>
+                <Form.Group as={Col}>
+                  <Form.Label>Topic: </Form.Label>
+                  <Form.Control type="text" placeholder="e.g. How was lab today?" />
+                </Form.Group>
+                <Button type="submit" >Post</Button>
+              </Form.Row>
+            </Form>
+            <GraphData data={this.props.data}></GraphData>
+          </Col>
+        </Row>
+      </Container>
+
     )
   }
 }
