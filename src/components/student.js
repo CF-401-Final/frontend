@@ -33,6 +33,7 @@ export default class Student extends React.Component {
       <div>
 
         <h1>Student</h1>
+        <h2>{this.props.data.topic}</h2>
         <BarGraph data={this.props.data}></BarGraph>
 
         <form onSubmit={this.sendQuestion} >
