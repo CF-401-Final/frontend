@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Instructor from './components/instructor.js';
 import Student from './components/student.js';
+import About from './components/about.js';
+import Home from './components/home.js';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
-// import './App.css';
+import './App.css';
 import Sockette from 'sockette';
 
 let socket = null;
@@ -50,35 +55,41 @@ function sendData(vote){
 
 
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/instructor">Instructor View</Link>
-            </li>
-            <li>
-              <Link to="/student">Student View</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
+    <React.Fragment>
+      <Router>
+      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar.Brand href="#home">Hands of Five</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/instructor">Instructor View</Link>
+          <Link className="nav-link" to="/student">Student View</Link>
+          <Link className="nav-link" to="/about">About Us</Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+    
+    <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/student">
             <Student data={data} sendData={sendData}/>
           </Route>
           <Route path="/instructor">
             <Instructor data={data} sendData={sendData}/>
           </Route>
+          <Route path="/about">
+            <About />
+          </Route>
 
         </Switch>
-      </div>
     </Router>
+
+
+    
+    </React.Fragment>
   );
 }
 
