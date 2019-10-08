@@ -54,55 +54,50 @@ function App() {
     console.log(data)
   }
 
-},
-[]
-  );
-function getData(e) {
-  console.log(JSON.parse(e.data))
-  setData(JSON.parse(e.data));
-  console.log(data)
-}
+  function getData(e) {
+    console.log(JSON.parse(e.data))
+    setData(JSON.parse(e.data));
+    console.log(data)
+  }
 
-function sendData(vote) {
-  socket.json(vote)
-}
+  function sendData(vote) {
+    socket.json(vote)
+  }
 
 
   return (
     <React.Fragment>
       <Router>
-      <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="#home">Hands of Five</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Link className="nav-link" to="/">Home</Link>
-          <Link className="nav-link" to="/instructor">Instructor View</Link>
-          <Link className="nav-link" to="/student">Student View</Link>
-          <Link className="nav-link" to="/about">About Us</Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-    
-    <Switch>
+        <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar.Brand href="#home">Hands of Five</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/instructor">Instructor View</Link>
+              <Link className="nav-link" to="/student">Student View</Link>
+              <Link className="nav-link" to="/about">About Us</Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+
+        <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route path="/student">
-            <Student data={data} sendData={sendData}/>
+            <Student data={data} sendData={sendData} />
           </Route>
           <Route path="/instructor">
-            <Instructor data={data} sendData={sendData}/>
+            <Instructor data={data} sendData={sendData} />
           </Route>
           <Route path="/about">
             <About />
           </Route>
 
         </Switch>
-    </Router>
+      </Router>
 
-
-    
     </React.Fragment>
   );
 }
