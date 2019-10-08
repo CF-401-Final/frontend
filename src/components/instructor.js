@@ -1,5 +1,6 @@
 import React from 'react';
 import GraphData from './GraphData.js';
+import BarGraph from './BarGraph.js';
 
 export default class Instructor extends React.Component {
   render() {
@@ -7,6 +8,7 @@ export default class Instructor extends React.Component {
       <div>
         <header>Hands of Five</header>
         <h1>Instructor View</h1>
+        <BarGraph data={this.props.data}></BarGraph>
         <GraphData data={this.props.data}></GraphData>
         <form>
           <label>Topic:
