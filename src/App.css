@@ -1,3 +1,7 @@
+/* https://coolors.co/d88741-e7e7e9-919768-5c6848-7c4c3d */
+/* <a href="https://www.freepik.com/free-photos-vectors/background">Background photo created by freepik - www.freepik.com</a> */
+
+
 .row {
   margin-top: 30px;
 }
@@ -9,6 +13,16 @@ h1, h2, h3, h4, h5, h6{
   font-family: 'Fredoka One', cursive;
 }
 
+h1 {
+  color: #4A5B2D;
+}
+
+.container {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+
 p{text-align: center;}
 
 
@@ -16,14 +30,21 @@ p{text-align: center;}
 .handsFive{
   font-size: 40px;
   padding: 10px;
+  color: #7e7e7e;
 }
 
 html, body {
   height: 100%;
-  background-color: #0093E9;
-  background: linear-gradient(0deg, rgba(196,229,245,1) 22%, rgba(245,254,255,1) 79%);
+  background-image: url(./images/desk.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
+}
 
+.card-text {
+  text-align: left;
 }
 
 
