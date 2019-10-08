@@ -51,7 +51,6 @@ function App() {
 
 },
 []
-  );
 function getData(e) {
   console.log(JSON.parse(e.data))
   setData(JSON.parse(e.data));
@@ -94,6 +93,6 @@ return (
     </div>
   </Router>
 );
-}
+
 
 export default App;
