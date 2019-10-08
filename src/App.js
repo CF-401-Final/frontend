@@ -23,7 +23,8 @@ function App() {
     threeCount: 0,
     fourCount: 0,
     fiveCount: 0,
-    totalConnections: 0
+    totalConnections: 0,
+    topic: 'Whats Your Understanding'
   });
   useEffect(
     () => {
