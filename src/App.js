@@ -26,7 +26,7 @@ useEffect(
       socket = new Sockette('wss://ux9oyskfdg.execute-api.us-east-1.amazonaws.com/dev',{
         timeout: 5e3,
         maxAttempts: 10,
-        onopen: e => console.log('Connected!', e),
+        onopen: e => didConnect(e),
         onmessage: e => getData(e),
         onreconnect: e => console.log('Reconnecting...', e),
         onmaximum: e => console.log('Stop Attempting!', e),
@@ -36,8 +36,13 @@ useEffect(
     }
     
   },
-  [data]
+  []
 );
+
+function didConnect(e){
+  socket.json({"action":"sendMessage","data":"-1"})
+}
+
 function getData(e){
   console.log(JSON.parse(e.data))
   setData(JSON.parse(e.data));
