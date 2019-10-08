@@ -4,19 +4,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class Home extends React.Component {
   render() {
     return (
-      <Container >
+      <Container className="home" >
       <Row className="justify-content-md-center">
       <Col s={12} md={7}>
         <h1>Hands of Five</h1>
         <p><i className="fas fa-hand-paper handsFive"></i></p>
         
         <p>Hands of Five is an app that allows classroom instructors to gauge the understanding of their students in real time.</p>
-          <Button variant="primary">Instructor</Button>
-          <Button variant="success">Student</Button>
+          
+        </Col>
+      </Row>
+      <Row className="justify-content-md-center">
+        <Col md={5}>
+        <Link to="/instructor"><Button variant="dark" size="lg" block>Instructor</Button></Link><br />
+              <Link to="/student"><Button variant="dark" size="lg" block>Students</Button></Link>
+          <br/>
+          
         </Col>
       </Row>
     </Container>
