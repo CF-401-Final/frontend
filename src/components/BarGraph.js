@@ -8,14 +8,15 @@ export default class BarGraph extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="chart-container" style={{ height: 400, width: 600 }}>
         <Bar
           options={{
             legend: {
               labels: {
                 boxWidth: 0,
-                fontColor: 'aqua',
-                fontSize: 30,
+                backgroundColor: 'pink',
+                fontColor: 'black',
+                fontSize: 15,
 
               },
 
@@ -24,7 +25,7 @@ export default class BarGraph extends React.Component {
               xAxes: [
                 {
                   ticks: {
-                    fontColor: 'aqua',
+                    fontColor: 'black',
                     fontSize: 15,
                   }
                 }
@@ -32,7 +33,7 @@ export default class BarGraph extends React.Component {
               yAxes: [
                 {
                   ticks: {
-                    fontColor: 'aqua',
+                    fontColor: 'black',
                     fontSize: 15,
                   }
                 }
@@ -46,8 +47,8 @@ export default class BarGraph extends React.Component {
               {
                 label: 'Student Polling Results',
                 // backgroundColor: this.state.cityData.categories.map(el => el.score_out_of_10 > 7 ? 'green' : el.score_out_of_10 > 4 && el.score_out_of_10 <= 7 ? 'yellow' : 'red'),
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                borderWidth: .5,
+                hoverBackgroundColor: 'red',
                 hoverBorderColor: 'rgba(255,99,132,1)',
 
 
