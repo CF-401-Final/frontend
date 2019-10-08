@@ -14,6 +14,7 @@ export default class About extends React.Component {
         <Col md={4}>
           <Card>
             <Card.Img variant="top" src="holder.js/100px180" />
+            <image src=""></image>
             <Card.Body>
               <Card.Title>Travis Cox</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>

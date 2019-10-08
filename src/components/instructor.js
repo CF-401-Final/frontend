@@ -41,7 +41,7 @@ export default class Instructor extends React.Component {
               <Form.Row>
                 <Form.Group as={Col}>
                   <Form.Label>Topic: </Form.Label>
-                  <Form.Control type="text" placeholder="e.g. How was lab today?" />
+                  <Form.Control name="topic" type="text" placeholder="e.g. How was lab today?" />
                 </Form.Group>
                 <Button type="submit" >Post</Button>
               </Form.Row>
