@@ -24,7 +24,8 @@ function App() {
     fourCount: 0,
     fiveCount: 0,
     totalConnections: 0,
-    topic: 'Whats Your Understanding'
+    topic: 'Whats Your Understanding',
+    temperatureAvg: 2.5
   });
   useEffect(
     () => {
@@ -46,7 +47,7 @@ function App() {
   );
 
   function didConnect(e) {
-    socket.json({ "action": "sendMessage", "data": "-1" })
+    socket.json({ "action": "sendMessage", "data": {"voteValue":"-1","tempValue":"2.5"} });
   }
 
   function getData(e) {
