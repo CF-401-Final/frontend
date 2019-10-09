@@ -9,19 +9,19 @@ export default class BarGraph extends React.Component {
 
     return (
       // make graph a reasonable size here https://www.chartjs.org/docs/latest/general/responsive.html
-      <div style={{ width: 500, height: 300 }}>
+      <div className='chart-container' style={{ margin: 'auto', position: 'relative', minWidth: 200, maxWidth: 500 }}>
         <Bar
           options={{
             legend: {
               labels: {
                 boxWidth: 0,
-                responsive: true,
                 fontColor: 'black',
                 fontSize: 15,
 
               },
 
             },
+
             scales: {
               xAxes: [
                 {
@@ -36,8 +36,8 @@ export default class BarGraph extends React.Component {
                 {
                   ticks: {
                     min: 0,
-                    max: 30,
-                    stepSize: 5,
+                    max: this.props.totalConnections,
+                    stepSize: 1,
                     fontColor: 'black',
                     fontSize: 15,
                   }

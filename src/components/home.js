@@ -1,6 +1,7 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -21,8 +22,8 @@ export default class Home extends React.Component {
       </Row>
       <Row className="justify-content-md-center">
         <Col md={5}>
-        <Link to="/instructor"><Button variant="dark" size="lg" block>Instructor</Button></Link><br />
-              <Link to="/student"><Button variant="dark" size="lg" block>Students</Button></Link>
+        <Link to="/instructor"><Button variant="info" size="lg" block>Instructor</Button></Link><br />
+              <Link to="/student"><Button variant="info" size="lg" block>Students</Button></Link>
           <br/>
           
         </Col>
