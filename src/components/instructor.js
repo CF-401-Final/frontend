@@ -19,6 +19,20 @@ export default class Instructor extends React.Component {
     })
   }
 
+  this.saveToLocalStorage = () => {
+    // get the array from local storage if one does not exist creat an empty array
+    let questions = JSON.parse(localStorage.getItem("quesitons") || "[]");
+    
+    // build the object
+    let questionData = this.props.data;
+    questionData.time = Date.now();
+
+    // push obj into arr
+    questions.push(questionData);
+
+    localStorage.setItem("questions", JSON.stringify(questions))
+  }
+
   }
   render() {
     return (
