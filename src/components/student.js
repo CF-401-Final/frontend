@@ -13,24 +13,35 @@ export default class Student extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      voteValue: 0
+      voteValue: 0,
+      tempValue: 2.5
     }
 
     this.sendQuestion = (e) => {
-      console.log("something", e);
+      
       e.preventDefault();
 
       this.props.sendData({
         action: "sendMessage",
-        data: this.state.voteValue
+        data: {
+          voteValue: this.state.voteValue,
+          tempValue: this.state.tempValue
+        }
       });
     }
 
     this.updateValue = (e) => {
-      console.log('e target value: ', e.target.value);
+      
 
       let value = e.target.value;
       this.setState({ voteValue: value })
+    }
+
+    this.updateTemp = (e) => {
+      
+      let newState = this.state;
+      newState.tempValue = e.target.value;
+      this.setState(newState);
     }
   }
 
@@ -76,10 +87,33 @@ export default class Student extends React.Component {
 
         {/* TODO: ongoing classroom understanding form */}
 
+        <h2>Temperature</h2>
+        <p>Current Avg Temp {this.props.data.temperatureAvg}</p>
+        <form onSubmit={this.sendQuestion} >
+          <label>
+            <input type="radio"
+              onClick={this.updateTemp} name="vote" value="0" />0
+          </label>
+          <label>
+            <input type="radio" onClick={this.updateTemp} name="vote" value="1" />1
+          </label>
+          <label>
+            <input type="radio" onClick={this.updateTemp} name="vote" value="2" />2
+          </label>
+          <label>
+            <input type="radio" onClick={this.updateTemp} name="vote" value="3" />3
+          </label>
+          <label>
+            <input type="radio" onClick={this.updateTemp} name="vote" value="4" />4
+          </label>
+          <label>
+            <input type="radio" onClick={this.updateTemp} name="vote" value="5" />5
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
 
+      </div>
       </Container>
     )
-
-  }
-
+ }
 }
