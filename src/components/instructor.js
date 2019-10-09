@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import BarGraph from './BarGraph.js';
+import DoughnutChart from './tempDisplay.js'
 import History from './History.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -43,8 +44,8 @@ export default class Instructor extends React.Component {
           <Col >
             <h1>Instructor View</h1>
             <h2>{this.props.data.topic}</h2>
-
             <BarGraph data={this.props.data}></BarGraph>
+            <DoughnutChart data={this.props.data}></DoughnutChart>
           </Col>
         </Row>
         {/* https://react-bootstrap.github.io/components/forms/ */}
