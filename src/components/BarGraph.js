@@ -37,8 +37,8 @@ export default class BarGraph extends React.Component {
                 {
                   ticks: {
                     min: 0,
-                    max: 30,
-                    stepSize: 5,
+                    max: this.props.totalConnections,
+                    stepSize: 1,
                     fontColor: 'black',
                     fontSize: 15,
                   }
