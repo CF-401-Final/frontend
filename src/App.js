@@ -47,7 +47,7 @@ function App() {
   );
 
   function didConnect(e) {
-    socket.json({ "action": "sendMessage", "data": {"voteValue":"-1","tempValue":"2.5"} });
+    socket.json({ "action": "sendMessage", "data": { "voteValue": "-1", "tempValue": "2.5" } });
   }
 
   function getData(e) {
@@ -59,8 +59,6 @@ function App() {
   function sendData(vote) {
     socket.json(vote)
   }
-
-
 
   return (
     <React.Fragment>

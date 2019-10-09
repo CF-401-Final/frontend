@@ -16,7 +16,7 @@ export default class Student extends React.Component {
     }
 
     this.sendQuestion = (e) => {
-      
+
       e.preventDefault();
 
       this.props.sendData({
@@ -29,14 +29,14 @@ export default class Student extends React.Component {
     }
 
     this.updateValue = (e) => {
-      
+
 
       let value = e.target.value;
       this.setState({ voteValue: value })
     }
 
     this.updateTemp = (e) => {
-      
+
       let newState = this.state;
       newState.tempValue = e.target.value;
       this.setState(newState);
@@ -48,7 +48,6 @@ export default class Student extends React.Component {
       <Container>
         <Row className="justify-content-md-center">
           <Col>
-
             <h1>Student</h1>
             <h2>{this.props.data.topic}</h2>
             <BarGraph data={this.props.data}></BarGraph>
@@ -59,32 +58,27 @@ export default class Student extends React.Component {
           <Form.Row>
             <Form.Group as={Col}>
               <label>
-                <input type="radio"
-                  onClick={this.updateValue} name="vote" value="0" />0
-          </label>
-
+                <input type="radio" onClick={this.updateValue} name="vote" value="0" />0
+              </label>
               <label>
                 <input type="radio" onClick={this.updateValue} name="vote" value="1" />1
-          </label>
+              </label>
               <label>
                 <input type="radio" onClick={this.updateValue} name="vote" value="2" />2
-          </label>
+              </label>
               <label>
                 <input type="radio" onClick={this.updateValue} name="vote" value="3" />3
-          </label>
+              </label>
               <label>
                 <input type="radio" onClick={this.updateValue} name="vote" value="4" />4
-          </label>
+              </label>
               <label>
                 <input type="radio" onClick={this.updateValue} name="vote" value="5" />5
-          </label>
+              </label>
               <input type="submit" value="Submit" />
-
             </Form.Group>
           </Form.Row>
         </Form>
-
-        {/* TODO: ongoing classroom understanding form */}
 
         <h2>Temperature</h2>
         <p>Current Avg Temp {this.props.data.temperatureAvg}</p>
@@ -110,8 +104,7 @@ export default class Student extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-
       </Container>
     )
- }
+  }
 }
