@@ -1,6 +1,7 @@
 import React from 'react';
 import GraphData from './GraphData.js';
 import BarGraph from './BarGraph.js';
+import Button from 'react-bootstrap/Button';
 
 
 export default class Instructor extends React.Component {
@@ -9,7 +10,7 @@ export default class Instructor extends React.Component {
    
     this.handle = (e)=>{
       e.preventDefault();
-      console.log('click',e.target.topic.value);
+      
       this.props.sendData({
         action: "sendMessage",
         data: {
@@ -21,15 +22,15 @@ export default class Instructor extends React.Component {
 
   this.saveToLocalStorage = () => {
     // get the array from local storage if one does not exist creat an empty array
-    let questions = JSON.parse(localStorage.getItem("quesitons") || "[]");
+    let questions = JSON.parse(localStorage.getItem("questions") || "[]");
     
     // build the object
     let questionData = this.props.data;
     questionData.time = Date.now();
-
-    // push obj into arr
+    
+    // // push obj into arr
     questions.push(questionData);
-
+    
     localStorage.setItem("questions", JSON.stringify(questions))
   }
 
@@ -48,8 +49,9 @@ export default class Instructor extends React.Component {
           </label>
           <button type="submit" >Post</button>
         </form>
-
+        
         <h3>Current Question: Lorem Epsum</h3>
+        <Button onClick={this.saveToLocalStorage}>Save Question Data</Button>
 
       </div>
     )
