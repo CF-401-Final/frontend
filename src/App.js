@@ -24,7 +24,8 @@ function App() {
     fourCount: 0,
     fiveCount: 0,
     totalConnections: 0,
-    topic: 'Whats Your Understanding'
+    topic: 'Whats Your Understanding',
+    temperatureAvg: 2.5
   });
   useEffect(
     () => {
@@ -46,13 +47,7 @@ function App() {
   );
 
   function didConnect(e) {
-    socket.json({ "action": "sendMessage", "data": "-1" })
-  }
-
-  function getData(e) {
-    console.log(JSON.parse(e.data))
-    setData(JSON.parse(e.data));
-    console.log(data)
+    socket.json({ "action": "sendMessage", "data": {"voteValue":"-1","tempValue":"2.5"} });
   }
 
   function getData(e) {
@@ -66,11 +61,12 @@ function App() {
   }
 
 
+
   return (
     <React.Fragment>
       <Router>
         <Navbar bg="dark" variant="dark" expand="lg">
-          <Navbar.Brand href="#home">Hands of Five</Navbar.Brand>
+          <Navbar.Brand href="/">Hands of Five</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
