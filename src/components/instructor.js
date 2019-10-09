@@ -30,26 +30,26 @@ export default class Instructor extends React.Component {
     return (
       <Container>
         <Row className="justify-content-md-center">
-          <Col>
+          <Col >
             <h1>Instructor View</h1>
             <h2>{this.props.data.topic}</h2>
 
             <BarGraph data={this.props.data}></BarGraph>
-
-
-            <Form type="submit" onSubmit={this.handle} name="topic" >
-              <Form.Row>
-                <Form.Group as={Col}>
-                  <Form.Label>Topic: </Form.Label>
-                  <Form.Control name="topic" type="text" placeholder="e.g. How was lab today?" />
-                </Form.Group>
-                <Button type="submit" >Post</Button>
-              </Form.Row>
-            </Form>
-            <GraphData data={this.props.data}></GraphData>
           </Col>
         </Row>
-      </Container>
+        {/* https://react-bootstrap.github.io/components/forms/ */}
+        <Form type="submit" onSubmit={this.handle} name="topic" style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }} >
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label>Topic: </Form.Label>
+              <Form.Control name="topic" type="text" placeholder="e.g. How was lab today?" />
+            </Form.Group>
+            <Button type="submit" >Post</Button>
+          </Form.Row>
+        </Form>
+        <GraphData data={this.props.data}></GraphData>
+
+      </Container >
 
     )
   }
