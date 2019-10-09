@@ -36,7 +36,7 @@ export default class Instructor extends React.Component {
 
             <BarGraph data={this.props.data}></BarGraph>
 
-
+            {/* https://react-bootstrap.github.io/components/forms/ */}
             <Form type="submit" onSubmit={this.handle} name="topic" >
               <Form.Row>
                 <Form.Group as={Col}>

@@ -9,19 +9,20 @@ export default class BarGraph extends React.Component {
 
     return (
       // make graph a reasonable size here https://www.chartjs.org/docs/latest/general/responsive.html
-      <div style={{ width: 500, height: 300 }}>
+      <div style={{ width: 500 }}>
         <Bar
           options={{
             legend: {
               labels: {
                 boxWidth: 0,
-                responsive: true,
                 fontColor: 'black',
                 fontSize: 15,
 
               },
 
             },
+            maintainAspectRatio: false,
+            aspectRatio: 1.5,
             scales: {
               xAxes: [
                 {
