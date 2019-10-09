@@ -7,8 +7,6 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import GraphData from './GraphData.js';
 import BarGraph from './BarGraph.js';
-import Button from 'react-bootstrap/Button';
-
 
 export default class Instructor extends React.Component {
   constructor(props) {
@@ -26,19 +24,19 @@ export default class Instructor extends React.Component {
       })
     }
 
-  this.saveToLocalStorage = () => {
-    // get the array from local storage if one does not exist creat an empty array
-    let questions = JSON.parse(localStorage.getItem("questions") || "[]");
-    
-    // build the object
-    let questionData = this.props.data;
-    questionData.time = Date.now();
-    
-    // // push obj into arr
-    questions.push(questionData);
-    
-    localStorage.setItem("questions", JSON.stringify(questions))
-  }
+    this.saveToLocalStorage = () => {
+      // get the array from local storage if one does not exist creat an empty array
+      let questions = JSON.parse(localStorage.getItem("questions") || "[]");
+
+      // build the object
+      let questionData = this.props.data;
+      questionData.time = Date.now();
+
+      // // push obj into arr
+      questions.push(questionData);
+
+      localStorage.setItem("questions", JSON.stringify(questions))
+    }
 
   }
   render() {
@@ -70,7 +68,7 @@ export default class Instructor extends React.Component {
           </label>
           <button type="submit" >Post</button>
         </form>
-        
+
         <h3>Current Question: Lorem Epsum</h3>
         <Button onClick={this.saveToLocalStorage}>Save Question Data</Button>
 
