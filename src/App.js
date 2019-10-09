@@ -55,15 +55,10 @@ function App() {
     console.log(data)
   }
 
-  function getData(e) {
-    console.log(JSON.parse(e.data))
-    setData(JSON.parse(e.data));
-    console.log(data)
-  }
-
   function sendData(vote) {
     socket.json(vote)
   }
+
 
 
   return (
