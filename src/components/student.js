@@ -39,7 +39,6 @@ export default class Student extends React.Component {
       <Container>
         <Row className="justify-content-md-center">
           <Col>
-
             <h1>Student</h1>
             <h2>{this.props.data.topic}</h2>
             <BarGraph data={this.props.data}></BarGraph>
