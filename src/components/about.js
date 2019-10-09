@@ -5,11 +5,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
-import jane from '../images/jane.png'
-
-console.log(jane);
-
-
 export default class About extends React.Component {
   render() {
     return (

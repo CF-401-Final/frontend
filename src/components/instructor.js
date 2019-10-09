@@ -7,8 +7,6 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import GraphData from './GraphData.js';
 import BarGraph from './BarGraph.js';
-import Button from 'react-bootstrap/Button';
-
 
 export default class Instructor extends React.Component {
   constructor(props) {
@@ -62,16 +60,7 @@ export default class Instructor extends React.Component {
             <Button type="submit" >Post</Button>
           </Form.Row>
         </Form>
-        <GraphData data={this.props.data}></GraphData>
 
-        <form type="submit" onSubmit={this.handle} name="topic">
-          <label>Topic:
-        <input type="text" name="topic"></input>
-          </label>
-          <button type="submit" >Post</button>
-        </form>
-        
-        <h3>Current Question: Lorem Epsum</h3>
         <Button onClick={this.saveToLocalStorage}>Save Question Data</Button>
 
 
