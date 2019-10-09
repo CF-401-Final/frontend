@@ -5,16 +5,20 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
+import jane from '../images/jane.png'
+
+console.log(jane);
+
+
 export default class About extends React.Component {
   render() {
     return (
       <Container>
         <h1>About Us</h1>
 	      <Row className="justify-content-md-center">
-        <Col md={4}>
+        <Col md={4} className="mb-sm-4 mb-md-0 col-md-4">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <image src=""></image>
+            <img src="/images/travis.jpeg" alt="Travis" className="profile-pic rounded-circle" />
             <Card.Body>
               <Card.Title>Travis Cox</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -22,15 +26,15 @@ export default class About extends React.Component {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Card.Link href="https://github.com/twardcox"><i class="fab fa-github"></i> Github</Card.Link>
+              <Card.Link href="https://github.com/twardcox"><i className="fab fa-github"></i> Github</Card.Link>
             </Card.Body>
           </Card>
 
 		    </Col>
 
-        <Col md={4}>
+        <Col md={4} className="col-md-4">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
+          <img src="/images/trevor.png" alt="Trevor" className="profile-pic rounded-circle" />
             <Card.Body>
               <Card.Title>Trevor Dobson</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -38,7 +42,7 @@ export default class About extends React.Component {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Card.Link href="https://github.com/trevorjdobson"><i class="fab fa-github"></i> Github</Card.Link>
+              <Card.Link href="https://github.com/trevorjdobson"><i className="fab fa-github"></i> Github</Card.Link>
             </Card.Body>
           </Card>
 
@@ -46,9 +50,9 @@ export default class About extends React.Component {
 	      </Row>
 
         <Row className="justify-content-md-center">
-        <Col md={4}>
+        <Col md={4} className="mb-sm-4 mb-md-0 col-md-4">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
+          <img src="/images/steve.jpeg" alt="Steve" className="profile-pic rounded-circle" />
             <Card.Body>
               <Card.Title>Steve Grant</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -56,15 +60,15 @@ export default class About extends React.Component {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Card.Link href="https://github.com/Stevengrant"><i class="fab fa-github"></i> Github</Card.Link>
+              <Card.Link href="https://github.com/Stevengrant"><i className="fab fa-github"></i> Github</Card.Link>
             </Card.Body>
           </Card>
 
 		    </Col>
 
-        <Col md={4}>
+        <Col md={4} className="col-md-4">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <img src="/images/jane.png" alt="Jane" className="profile-pic rounded-circle" />
             <Card.Body>
               <Card.Title>Jane Hur</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -72,7 +76,7 @@ export default class About extends React.Component {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Card.Link href="https://github.com/janiekyu"><i class="fab fa-github"></i> Github</Card.Link>
+              <Card.Link href="https://github.com/janiekyu"><i className="fab fa-github"></i> Github</Card.Link>
             </Card.Body>
           </Card>
 
@@ -80,9 +84,9 @@ export default class About extends React.Component {
 	      </Row>
 
         <Row className="justify-content-md-center">
-        <Col md={4}>
+        <Col md={4} className="mb-sm-4 mb-md-0 col-md-4">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
+          <img src="/images/renee.jpeg" alt="Renee" className="profile-pic rounded-circle" />
             <Card.Body>
               <Card.Title>Renee Messick</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -90,7 +94,7 @@ export default class About extends React.Component {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Card.Link href="https://github.com/rnmessick"><i class="fab fa-github"></i> Github</Card.Link>
+              <Card.Link href="https://github.com/rnmessick"><i className="fab fa-github"></i> Github</Card.Link>
             </Card.Body>
           </Card>
 
