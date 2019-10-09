@@ -4,6 +4,7 @@ import Instructor from './components/instructor.js';
 import Student from './components/student.js';
 import About from './components/about.js';
 import Home from './components/home.js';
+import History from './components/History.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar'
@@ -47,7 +48,7 @@ function App() {
   );
 
   function didConnect(e) {
-    socket.json({ "action": "sendMessage", "data": {"voteValue":"-1","tempValue":"2.5"} });
+    socket.json({ "action": "sendMessage", "data": { "voteValue": "-1", "tempValue": "2.5" } });
   }
 
   function getData(e) {
@@ -59,8 +60,6 @@ function App() {
   function sendData(vote) {
     socket.json(vote)
   }
-
-
 
   return (
     <React.Fragment>
@@ -90,6 +89,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/history">
+            <History />
           </Route>
 
         </Switch>

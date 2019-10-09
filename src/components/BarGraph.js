@@ -6,7 +6,6 @@ export default class BarGraph extends React.Component {
     super(props);
   }
   render() {
-
     return (
       // make graph a reasonable size here https://www.chartjs.org/docs/latest/general/responsive.html
       <div className='chart-container' style={{ margin: 'auto', position: 'relative', minWidth: 200, maxWidth: 500 }}>
@@ -17,7 +16,6 @@ export default class BarGraph extends React.Component {
                 boxWidth: 0,
                 fontColor: 'black',
                 fontSize: 15,
-
               },
 
             },
@@ -57,17 +55,13 @@ export default class BarGraph extends React.Component {
                 hoverBackgroundColor: 'rgba(255,99,132,0.4)',
                 hoverBorderColor: 'rgba(255,99,132,1)',
 
-
                 data: [this.props.data.zeroCount, this.props.data.oneCount, this.props.data.twoCount, this.props.data.threeCount,
                 this.props.data.fourCount, this.props.data.fiveCount]
               }
             ]
-
           }}
-
         />
       </div>
     )
   }
-
 }
