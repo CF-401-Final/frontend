@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import BarGraph from './BarGraph.js';
+import TemperatureForm from './TemperatureForm.js';
 
 export default class Student extends React.Component {
 
@@ -82,28 +83,7 @@ export default class Student extends React.Component {
 
         <h2>Temperature</h2>
         <p>Current Avg Temp {this.props.data.temperatureAvg}</p>
-        <form onSubmit={this.sendQuestion} >
-          <label>
-            <input type="radio"
-              onClick={this.updateTemp} name="vote" value="0" />0
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="1" />1
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="2" />2
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="3" />3
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="4" />4
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="5" />5
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <TemperatureForm />
       </Container>
     )
   }
