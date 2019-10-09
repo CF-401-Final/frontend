@@ -10,7 +10,6 @@
 
 h1, h2, h3, h4, h5, h6{
   text-align: center;
-  
 }
 
 h1 {
@@ -26,8 +25,6 @@ h1 {
 
 
 p{text-align: center;}
-
-
 
 .handsFive{
   font-size: 40px;
@@ -45,8 +42,8 @@ html, body {
 
 }
 
-.card-text {
-  text-align: left;
+.card-title, .card-text, .card-subtitle {
+  text-align: center;
 }
 
 .profile-pic{
