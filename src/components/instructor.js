@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import GraphData from './GraphData.js';
 import BarGraph from './BarGraph.js';
+import DoughnutChart from './tempDisplay.js'
 
 export default class Instructor extends React.Component {
   constructor(props) {
@@ -24,19 +25,19 @@ export default class Instructor extends React.Component {
       })
     }
 
-  this.saveToLocalStorage = () => {
-    // get the array from local storage if one does not exist creat an empty array
-    let questions = JSON.parse(localStorage.getItem("questions") || "[]");
-    
-    // build the object
-    let questionData = this.props.data;
-    questionData.time = Date.now();
-    
-    // // push obj into arr
-    questions.push(questionData);
-    
-    localStorage.setItem("questions", JSON.stringify(questions))
-  }
+    this.saveToLocalStorage = () => {
+      // get the array from local storage if one does not exist creat an empty array
+      let questions = JSON.parse(localStorage.getItem("questions") || "[]");
+
+      // build the object
+      let questionData = this.props.data;
+      questionData.time = Date.now();
+
+      // // push obj into arr
+      questions.push(questionData);
+
+      localStorage.setItem("questions", JSON.stringify(questions))
+    }
 
   }
   render() {
@@ -46,8 +47,8 @@ export default class Instructor extends React.Component {
           <Col >
             <h1>Instructor View</h1>
             <h2>{this.props.data.topic}</h2>
-
             <BarGraph data={this.props.data}></BarGraph>
+            <DoughnutChart data={this.props.data}></DoughnutChart>
           </Col>
         </Row>
         {/* https://react-bootstrap.github.io/components/forms/ */}
