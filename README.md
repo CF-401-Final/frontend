@@ -1,10 +1,17 @@
-resources:
+
+
+# Hands of Five Frontend
+
+## resources:
 http://react.tips/radio-buttons-in-react-16/
 
 https://canvasjs.com/react-charts/chart-index-data-label/
 
 https://canvasjs.com/react-charts/column-chart/
 
+https://react-bootstrap.github.io/components/forms/
+
+https://stackoverflow.com/questions/45012649/react-boostrap-center-text
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
