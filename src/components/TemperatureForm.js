@@ -57,10 +57,11 @@ export default class TemperatureForm extends React.Component {
             }} /><i className="fas fa-frown"></i>
           </label>
           <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="2" style={{
-              position: "absolute",
-              opacity: "0"
-            }} /><i class="fas fa-flushed"></i>
+            <input type="radio" onClick={this.updateTemp} name="vote" value="2"
+              style={{
+                position: "absolute",
+                opacity: "0"
+              }} /><i class="fas fa-flushed"></i>
           </label>
           <label>
             <input type="radio" onClick={this.updateTemp} name="vote" value="3" style={{
@@ -75,12 +76,13 @@ export default class TemperatureForm extends React.Component {
             }} /><i class="fas fa-smile"></i>
           </label>
           <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="5" style={{
-              position: "absolute",
-              opacity: "0"
-            }} /><i class="fas fa-grin-beam"></i>
+            <input type="radio" onClick={this.updateTemp} name="vote" value="5"
+              style={{
+                position: "absolute",
+                opacity: "0"
+              }} /><i class="fas fa-grin-beam"></i>
           </label>
-          <input type="submit" value="Submit" />
+          {/* <input type="submit" value="Submit" /> */}
         </form>
       </div>
     )

@@ -25,7 +25,7 @@ function App() {
     fourCount: 0,
     fiveCount: 0,
     totalConnections: 0,
-    topic: 'Whats Your Understanding',
+    topic: "What's Your Understanding",
     temperatureAvg: 2.5
   });
   useEffect(
