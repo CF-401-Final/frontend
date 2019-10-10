@@ -2,7 +2,6 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 export default class TemperatureForm extends React.Component {
 
   constructor(props) {
@@ -11,25 +10,25 @@ export default class TemperatureForm extends React.Component {
       voteValue: 0,
       tempValue: 2.5
     }
-    this.sendQuestion = (e) => {
+    // this.sendQuestion = (e) => {
 
-      e.preventDefault();
+    //   e.preventDefault();
 
-      this.props.sendData({
-        action: "sendMessage",
-        data: {
-          voteValue: this.state.voteValue,
-          tempValue: this.state.tempValue
-        }
-      });
-    }
+    //   this.props.sendData({
+    //     action: "sendMessage",
+    //     data: {
+    //       //         voteValue: this.state.voteValue,
+    //       tempValue: this.state.tempValue
+    //     }
+    //   });
+    // }
 
-    this.updateValue = (e) => {
+    //   this.updateValue = (e) => {
 
 
-      let value = e.target.value;
-      this.setState({ voteValue: value })
-    }
+    //     let value = e.target.value;
+    //     this.setState({ voteValue: value })
+    //   }
 
     this.updateTemp = (e) => {
 
@@ -40,17 +39,18 @@ export default class TemperatureForm extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Form onSubmit={this.sendQuestion} >
+      <div style={{ margin: 'auto', position: 'relative', minWidth: 200, maxWidth: 500 }}>
+        <form className=""
+          onSubmit={this.sendQuestion} >
           {/* https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons */}
-          <label>
+          <label className="col-sm-2 control-label">
             <input type="radio"
               onClick={this.updateTemp} name="vote" value="0" style={{
                 position: "absolute",
                 opacity: "0"
-              }} /><i className="fas fa-tired"></i>
+              }} /><span style={{ fontSize: "3em", color: "Tomato" }}><i className="fas fa-tired"></i></span>
           </label>
-          <label>
+          <label className="col-sm- control-label">
             <input type="radio" onClick={this.updateTemp} name="vote" value="1" style={{
               position: "absolute",
               opacity: "0"
@@ -80,10 +80,8 @@ export default class TemperatureForm extends React.Component {
               opacity: "0"
             }} /><i class="fas fa-grin-beam"></i>
           </label>
-
-          {/* make each image submit the response */}
           <input type="submit" value="Submit" />
-        </Form>
+        </form>
       </div>
     )
   }

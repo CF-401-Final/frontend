@@ -83,7 +83,7 @@ export default class Student extends React.Component {
 
         <h2>Temperature</h2>
         <p>Current Avg Temp {this.props.data.temperatureAvg}</p>
-        <TemperatureForm />
+        <TemperatureForm data={this.props.data} />
       </Container>
     )
   }

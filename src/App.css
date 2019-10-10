@@ -65,8 +65,9 @@ html, body {
   text-decoration: none;
 }
 
-
-
+input:focus {
+  background-color: yellow;
+}
 
 
 
