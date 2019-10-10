@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
+import { Line } from 'react-chartjs-2';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -7,6 +8,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import BarGraph from './BarGraph.js';
 import DoughnutChart from './tempDisplay.js'
+import LineChart from './LineChart.js';
 import History from './History.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -38,6 +40,7 @@ export default class Instructor extends React.Component {
     }
   }
   render() {
+    
     return (
       <Container>
         <Row className="justify-content-md-center">
@@ -60,6 +63,7 @@ export default class Instructor extends React.Component {
         </Form>
         <Button onClick={this.saveToLocalStorage}>Save Question Data</Button>
           <Link to="/history"><Button variant="info" size="lg" block>Past Results</Button></Link>
+          <LineChart lineData={this.props.lineData}/>
       </Container >
     )
   }

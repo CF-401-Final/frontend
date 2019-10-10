@@ -28,6 +28,10 @@ function App() {
     topic: "What's Your Understanding",
     temperatureAvg: 2.5
   });
+  const [lineData, setLineData] = useState({
+    avgs:[2.5,2.5],
+    labels:['','']
+  });
   useEffect(
     () => {
       if (socket === null) {
@@ -52,9 +56,14 @@ function App() {
   }
 
   function getData(e) {
-    console.log(JSON.parse(e.data))
+   
     setData(JSON.parse(e.data));
-    console.log(data)
+    let newAvg = JSON.parse(e.data).temperatureAvg;
+    let newLineData = lineData;
+    newLineData.avgs.push(parseFloat(newAvg));
+    newLineData.labels.push('');
+    setLineData(newLineData);
+   
   }
 
   function sendData(vote) {
@@ -85,7 +94,7 @@ function App() {
             <Student data={data} sendData={sendData} />
           </Route>
           <Route path="/instructor">
-            <Instructor data={data} sendData={sendData} />
+            <Instructor data={data} sendData={sendData} lineData={lineData} />
           </Route>
           <Route path="/about">
             <About />
