@@ -25,7 +25,7 @@ function App() {
     fourCount: 0,
     fiveCount: 0,
     totalConnections: 0,
-    topic: "What's Your Understanding",
+    topic: "What is Your Understanding",
     temperatureAvg: 2.5
   });
   const [lineData, setLineData] = useState({
@@ -73,17 +73,8 @@ function App() {
   return (
     <React.Fragment>
       <Router>
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" >
           <Navbar.Brand href="/">Hands of Five</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Link className="nav-link" to="/">Home</Link>
-              <Link className="nav-link" to="/instructor">Instructor View</Link>
-              <Link className="nav-link" to="/student">Student View</Link>
-              <Link className="nav-link" to="/about">About Us</Link>
-            </Nav>
-          </Navbar.Collapse>
         </Navbar>
 
         <Switch>

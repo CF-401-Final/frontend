@@ -1,6 +1,5 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
-import { Line } from 'react-chartjs-2';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -9,7 +8,6 @@ import Button from 'react-bootstrap/Button'
 import BarGraph from './BarGraph.js';
 import DoughnutChart from './tempDisplay.js'
 import LineChart from './LineChart.js';
-import History from './History.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class Instructor extends React.Component {
@@ -46,13 +44,7 @@ export default class Instructor extends React.Component {
         <Row className="justify-content-md-center">
           <Col >
             <h1>Instructor View</h1>
-            <h2>{this.props.data.topic}</h2>
-            <BarGraph data={this.props.data}></BarGraph>
-            <DoughnutChart data={this.props.data}></DoughnutChart>
-          </Col>
-        </Row>
-        {/* https://react-bootstrap.github.io/components/forms/ */}
-        <Form type="submit" onSubmit={this.handle} name="topic" style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }} >
+            <Form type="submit" onSubmit={this.handle} name="topic" style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }} >
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Topic: </Form.Label>
@@ -61,8 +53,15 @@ export default class Instructor extends React.Component {
             <Button type="submit" >Post</Button>
           </Form.Row>
         </Form>
-        <Button onClick={this.saveToLocalStorage}>Save Question Data</Button>
-          <Link to="/history"><Button variant="info" size="lg" block>Past Results</Button></Link>
+            <h2>{this.props.data.topic} <br/> <Button onClick={this.saveToLocalStorage}>Save Topic</Button><Link to="/history"> <Button variant="info" >View Saved Topics</Button></Link></h2>
+
+            
+
+            <BarGraph data={this.props.data}></BarGraph>
+            <DoughnutChart data={this.props.data}></DoughnutChart>
+          </Col>
+        </Row>
+        {/* https://react-bootstrap.github.io/components/forms/ */}
           <LineChart lineData={this.props.lineData}/>
       </Container >
     )
