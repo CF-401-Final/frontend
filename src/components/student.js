@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import BarGraph from './BarGraph.js';
 import VolumeSlider from './Slider.js';
-import Image from 'react-bootstrap/Image'
+
 export default class Student extends React.Component {
 
   constructor(props) {
@@ -29,11 +29,11 @@ export default class Student extends React.Component {
       });
     }
 
-    this.updateValue = (e) => {
+    this.handleSliderChange = (value) =>{
+      let newState = this.state;
+      newState.voteValue = value;
+      this.setState(newState);
 
-
-      let value = e.target.value;
-      this.setState({ voteValue: value })
     }
 
     this.updateTemp = (e) => {
@@ -58,30 +58,13 @@ export default class Student extends React.Component {
           style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }}>
           <Form.Row>
             <Form.Group as={Col}>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="0" />0
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="1" />1
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="2" />2
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="3" />3
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="4" />4
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="5" />5
-              </label>
+            <VolumeSlider handleSliderChange={this.handleSliderChange}></VolumeSlider>
+              
               <input type="submit" value="Submit" />
             </Form.Group>
           </Form.Row>
         </Form>
 
-        <VolumeSlider></VolumeSlider>
         <h2>Temperature</h2>
 
         <p>Current Avg Temp {this.props.data.temperatureAvg}</p>
@@ -106,35 +89,35 @@ export default class Student extends React.Component {
                     position: "absolute",
                     opacity: "0"
                   }} />1
-              <span style={{ fontSize: "3em", color: "Tomato" }}><i class="fas fa-flushed"></i></span>
+              <span style={{ fontSize: "3em", color: "Tomato" }}><i className="fas fa-flushed"></i></span>
               </label>
               <label>
                 <input type="radio" onClick={this.updateTemp} name="vote" value="2"
                   style={{
                     position: "absolute",
                     opacity: "0"
-                  }} />2<span style={{ fontSize: "3em", color: "DarkOrange" }}><i class="fas fa-meh"></i></span>
+                  }} />2<span style={{ fontSize: "3em", color: "DarkOrange" }}><i className="fas fa-meh"></i></span>
               </label>
               <label>
                 <input type="radio" onClick={this.updateTemp} name="vote" value="3"
                   style={{
                     position: "absolute",
                     opacity: "0"
-                  }} />3<span style={{ fontSize: "3em", color: "YellowGreen" }}><i class="fas fa-meh"></i></span>
+                  }} />3<span style={{ fontSize: "3em", color: "YellowGreen" }}><i className="fas fa-meh"></i></span>
               </label>
               <label>
                 <input type="radio" onClick={this.updateTemp} name="vote" value="4"
                   style={{
                     position: "absolute",
                     opacity: "0"
-                  }} />4<span style={{ fontSize: "3em", color: "GreenYellow" }}><i class="fas fa-smile"></i></span>
+                  }} />4<span style={{ fontSize: "3em", color: "GreenYellow" }}><i className="fas fa-smile"></i></span>
               </label>
               <label>
                 <input type="radio" onClick={this.updateTemp} name="vote" value="5"
                   style={{
                     position: "absolute",
                     opacity: "0"
-                  }} />5<span style={{ fontSize: "3em", color: "LimeGreen" }}><i class="fas fa-grin-beam"></i></span>
+                  }} />5<span style={{ fontSize: "3em", color: "LimeGreen" }}><i className="fas fa-grin-beam"></i></span>
               </label>
               <input type="submit" value="Submit" />
             </Form.Group>
