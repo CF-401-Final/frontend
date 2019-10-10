@@ -127,6 +127,7 @@ export default class Student extends React.Component {
 
             </Form >
           </Col>
+
           <Col >
             <Form className="text-center">
               <label>
