@@ -5,6 +5,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import BarGraph from './BarGraph.js';
+import VolumeSlider from './Slider.js';
+import Button from 'react-bootstrap/Button'
+
 
 export default class Student extends React.Component {
 
@@ -16,7 +19,7 @@ export default class Student extends React.Component {
     }
 
     this.sendQuestion = (e) => {
-      
+
       e.preventDefault();
 
       this.props.sendData({
@@ -28,90 +31,156 @@ export default class Student extends React.Component {
       });
     }
 
-    this.updateValue = (e) => {
-      
+    this.handleSliderChange = (value) => {
+      let newState = this.state;
+      newState.voteValue = value;
+      this.setState(newState);
 
-      let value = e.target.value;
-      this.setState({ voteValue: value })
     }
 
-    this.updateTemp = (e) => {
-      
+    this.updateTemp = async (e) => {
+      e.preventDefault();
       let newState = this.state;
       newState.tempValue = e.target.value;
-      this.setState(newState);
+
+      let state = await this.setState(newState);
+      this.sendQuestion(e);
     }
   }
 
   render() {
+
+    let evenNumber = (Math.floor(this.props.data.temperatureAvg * 10))/10;
+
     return (
       <Container>
         <Row className="justify-content-md-center">
           <Col>
-
-            <h1>Student</h1>
-            <h2>{this.props.data.topic}</h2>
-            <BarGraph data={this.props.data}></BarGraph>
-          </Col>
-        </Row>
-        <Form onSubmit={this.sendQuestion}
+          <h1>Student View</h1>
+          <Form onSubmit={this.sendQuestion}
           style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }}>
           <Form.Row>
             <Form.Group as={Col}>
-              <label>
-                <input type="radio"
-                  onClick={this.updateValue} name="vote" value="0" />0
-          </label>
 
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="1" />1
-          </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="2" />2
-          </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="3" />3
-          </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="4" />4
-          </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="5" />5
-          </label>
-              <input type="submit" value="Submit" />
+            <VolumeSlider handleSliderChange={this.handleSliderChange}></VolumeSlider>
+              
+              <Button className="center-block" variant="info" type="submit" value="Submit" >Submit</Button>
 
             </Form.Group>
           </Form.Row>
         </Form>
+          </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Col>
+            <h2>{this.props.data.topic}</h2>
+            <BarGraph data={this.props.data}></BarGraph>
+          </Col>
+        </Row>
+        
 
-        {/* TODO: ongoing classroom understanding form */}
+        <h2>How Do You Feel?</h2>
+        <p>Current Avg Temp {evenNumber}</p>
 
-        <h2>Temperature</h2>
-        <p>Current Avg Temp {this.props.data.temperatureAvg}</p>
-        <form onSubmit={this.sendQuestion} >
-          <label>
-            <input type="radio"
-              onClick={this.updateTemp} name="vote" value="0" />0
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="1" />1
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="2" />2
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="3" />3
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="4" />4
-          </label>
-          <label>
-            <input type="radio" onClick={this.updateTemp} name="vote" value="5" />5
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <Row className="justify-content-md-center" style={{ margin: 'auto', position: 'relative', minWidth: 380, maxWidth: 400 }}>
 
-      </Container>
+          <Col className="hover-effect" >
+            <Form className="text-center">
+              <label>
+                <input onClick={this.updateTemp} type="submit"
+                  name="vote" value="0"
+
+                  style={{
+                    position: "absolute",
+                    opacity: "0"
+                  }} />
+                <i className="fas fa-tired"
+                  style={{ fontSize: "2em", color: "Red" }}>
+                  <br />
+                  <span style={{ color: "Black" }} >0</span></i>
+              </label>
+            </Form>
+          </Col>
+
+          <Col className="hover-effect">
+            <Form className="text-center">
+              <label>
+                <input type="submit" onClick={this.updateTemp} name="vote" value="1"
+                  style={{
+                    position: "absolute",
+                    opacity: "0"
+                  }} />
+                <i className="fas fa-flushed"
+                  style={{ fontSize: "2em", color: "Tomato" }}>
+                  <br /><span style={{ color: "Black" }}>1 </span></i>
+
+              </label>
+
+            </Form >
+          </Col>
+
+          <Col className="hover-effect" >
+            <Form className="text-center">
+              <label>
+                <input type="submit" onClick={this.updateTemp} name="vote" value="2"
+                  style={{
+                    position: "absolute",
+                    opacity: "0",
+                    backgroundColor: this.state.bgColor
+                  }} />
+                <i className="fas fa-meh"
+                  style={{ fontSize: "2em", color: "DarkOrange" }}>
+                  <br /><span style={{ color: "Black" }}>2</span></i>
+              </label>
+            </Form>
+          </Col>
+
+          <Col className="hover-effect">
+            <Form className="text-center">
+              <label>
+                <input type="submit" onClick={this.updateTemp} name="vote" value="3"
+                  style={{
+                    position: "absolute",
+                    opacity: "0"
+                  }} />
+                <i className="fas fa-meh" style={{ fontSize: "2em", color: "YellowGreen" }}>
+                  <br /><span style={{ color: "Black" }}>3</span></i>
+              </label>
+            </Form>
+          </Col>
+
+          <Col className="hover-effect">
+            <Form className="text-center" >
+              <label>
+                <input type="submit" onClick={this.updateTemp} name="vote" value="4"
+                  style={{
+                    position: "absolute",
+                    opacity: "0"
+                  }} />
+                <i className="fas fa-smile" style={{ fontSize: "2em", color: "GreenYellow" }}>
+                  <br /><span style={{ color: "Black" }}>4</span></i>
+              </label>
+            </Form>
+          </Col>
+
+          <Col
+            className="hover-effect">
+            <Form className="text-center">
+              <label>
+                <input type="submit" onClick={this.updateTemp} name="vote" value="5"
+                  style={{
+                    position: "absolute",
+                    opacity: "0"
+                  }} />
+                <i className="fas fa-grin-beam" style={{ fontSize: "2em", color: "LimeGreen" }}>
+                  <br /><span style={{ color: "Black" }}>5</span>
+                </i>
+              </label>
+            </Form >
+          </Col>
+
+        </Row >
+      </Container >
     )
- }
+  }
 }

@@ -4,6 +4,7 @@ import Instructor from './components/instructor.js';
 import Student from './components/student.js';
 import About from './components/about.js';
 import Home from './components/home.js';
+import History from './components/History.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar'
@@ -24,8 +25,12 @@ function App() {
     fourCount: 0,
     fiveCount: 0,
     totalConnections: 0,
-    topic: 'Whats Your Understanding',
+    topic: "What is Your Understanding",
     temperatureAvg: 2.5
+  });
+  const [lineData, setLineData] = useState({
+    avgs:[2.5,2.5],
+    labels:['','']
   });
   useEffect(
     () => {
@@ -47,35 +52,29 @@ function App() {
   );
 
   function didConnect(e) {
-    socket.json({ "action": "sendMessage", "data": {"voteValue":"-1","tempValue":"2.5"} });
+    socket.json({ "action": "sendMessage", "data": { "voteValue": "-1", "tempValue": "2.5" } });
   }
 
   function getData(e) {
-    console.log(JSON.parse(e.data))
+   
     setData(JSON.parse(e.data));
-    console.log(data)
+    let newAvg = JSON.parse(e.data).temperatureAvg;
+    let newLineData = lineData;
+    newLineData.avgs.push(parseFloat(newAvg));
+    newLineData.labels.push('');
+    setLineData(newLineData);
+   
   }
 
   function sendData(vote) {
     socket.json(vote)
   }
 
-
-
   return (
     <React.Fragment>
       <Router>
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" >
           <Navbar.Brand href="/">Hands of Five</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Link className="nav-link" to="/">Home</Link>
-              <Link className="nav-link" to="/instructor">Instructor View</Link>
-              <Link className="nav-link" to="/student">Student View</Link>
-              <Link className="nav-link" to="/about">About Us</Link>
-            </Nav>
-          </Navbar.Collapse>
         </Navbar>
 
         <Switch>
@@ -86,10 +85,13 @@ function App() {
             <Student data={data} sendData={sendData} />
           </Route>
           <Route path="/instructor">
-            <Instructor data={data} sendData={sendData} />
+            <Instructor data={data} sendData={sendData} lineData={lineData} />
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/history">
+            <History />
           </Route>
 
         </Switch>

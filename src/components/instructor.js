@@ -5,8 +5,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import GraphData from './GraphData.js';
 import BarGraph from './BarGraph.js';
+import DoughnutChart from './tempDisplay.js'
+import LineChart from './LineChart.js';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class Instructor extends React.Component {
   constructor(props) {
@@ -24,34 +26,25 @@ export default class Instructor extends React.Component {
       })
     }
 
-  this.saveToLocalStorage = () => {
-    // get the array from local storage if one does not exist creat an empty array
-    let questions = JSON.parse(localStorage.getItem("questions") || "[]");
-    
-    // build the object
-    let questionData = this.props.data;
-    questionData.time = Date.now();
-    
-    // // push obj into arr
-    questions.push(questionData);
-    
-    localStorage.setItem("questions", JSON.stringify(questions))
-  }
-
+    this.saveToLocalStorage = () => {
+      // get the array from local storage if one does not exist creat an empty array
+      let questions = JSON.parse(localStorage.getItem("questions") || "[]");
+      // build the object
+      let questionData = this.props.data;
+      questionData.time = Date.now();
+      // // push obj into arr
+      questions.unshift(questionData);
+      localStorage.setItem("questions", JSON.stringify(questions))
+    }
   }
   render() {
+    
     return (
       <Container>
         <Row className="justify-content-md-center">
           <Col >
             <h1>Instructor View</h1>
-            <h2>{this.props.data.topic}</h2>
-
-            <BarGraph data={this.props.data}></BarGraph>
-          </Col>
-        </Row>
-        {/* https://react-bootstrap.github.io/components/forms/ */}
-        <Form type="submit" onSubmit={this.handle} name="topic" style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }} >
+            <Form type="submit" onSubmit={this.handle} name="topic" style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }} >
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Topic: </Form.Label>
@@ -60,13 +53,17 @@ export default class Instructor extends React.Component {
             <Button type="submit" >Post</Button>
           </Form.Row>
         </Form>
+            <h2>{this.props.data.topic} <br/> <Button onClick={this.saveToLocalStorage}>Save Topic</Button><Link to="/history"> <Button variant="info" >View Saved Topics</Button></Link></h2>
 
-        <Button onClick={this.saveToLocalStorage}>Save Question Data</Button>
+            
 
-
+            <BarGraph data={this.props.data}></BarGraph>
+            <DoughnutChart data={this.props.data}></DoughnutChart>
+          </Col>
+        </Row>
+        {/* https://react-bootstrap.github.io/components/forms/ */}
+          <LineChart lineData={this.props.lineData}/>
       </Container >
-
-
     )
   }
 }
