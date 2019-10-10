@@ -8,24 +8,28 @@ export default class VolumeSlider extends React.Component {
     constructor(props, context) {
       super(props, context)
       this.state = {
-        volume: 0,
+        volume: -1,
         handImages : ["hands1", "hands2", "hands3", "hands4", "hands5", "hands6"]
       }
     }
    
     handleOnChange = (value) => {
+      
+      this.props.handleSliderChange(value);
       this.setState({
         volume: value
       })
     }
-   
+    
+
     render() {
       let { volume } = this.state
 
       return (
-        <div>
+        <div >
+        
+        <img src={this.state.volume === -1?  `./images/${this.state.handImages[0]}.jpg`:`./images/${this.state.handImages[this.state.volume]}.jpg`} alt="Hands of Five" height="142" width="142"/>
 
-          <img src={`./images/${this.state.handImages[this.state.volume]}.jpg`} alt="Hands of Five" height="142" width="142"/>
         <Slider
           className="slider"
           value={volume}

@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form'
 import BarGraph from './BarGraph.js';
 import VolumeSlider from './Slider.js';
 import { async } from 'q';
-// import TemperatureForm from './TemperatureForm.js';
+
 export default class Student extends React.Component {
 
   constructor(props) {
@@ -30,11 +30,11 @@ export default class Student extends React.Component {
       });
     }
 
-    this.updateValue = (e) => {
+    this.handleSliderChange = (value) =>{
+      let newState = this.state;
+      newState.voteValue = value;
+      this.setState(newState);
 
-
-      let value = e.target.value;
-      this.setState({ voteValue: value })
     }
 
     this.updateTemp = async (e) => {
@@ -61,30 +61,12 @@ export default class Student extends React.Component {
           style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }}>
           <Form.Row>
             <Form.Group as={Col}>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="0" />0
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="1" />1
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="2" />2
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="3" />3
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="4" />4
-              </label>
-              <label>
-                <input type="radio" onClick={this.updateValue} name="vote" value="5" />5
-              </label>
+            <VolumeSlider handleSliderChange={this.handleSliderChange}></VolumeSlider>
+              
               <input type="submit" value="Submit" />
             </Form.Group>
           </Form.Row>
         </Form>
-
-        <VolumeSlider></VolumeSlider>
 
         {/* Student's Current Temperature/Understanding of Lecture */}
         {/* See readme for all the lovely 'bootsrap for react' resources used */}
@@ -123,6 +105,7 @@ export default class Student extends React.Component {
                 <i className="fas fa-flushed"
                   style={{ fontSize: "2em", color: "Tomato" }}>
                   <br /><span style={{ color: "Black" }}>1 </span></i>
+
               </label>
 
             </Form >
