@@ -1,11 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-export default class LineChart extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
+const LineChart = (props) => {
     
     return (
       <Line
@@ -51,20 +47,21 @@ export default class LineChart extends React.Component {
           }}
 
           data={{
-            labels: this.props.lineData.labels,
+            labels: props.lineData.labels,
             datasets: [
               {
-                label: 'Student Polling Results',
+                label: 'Historical Room Temp',
                 fill: false,
                 backgroundColor: '',
                 borderColor: 'red',
                 borderWidth: 1.5,
 
-                data: this.props.lineData.avgs
+                data: props.lineData.avgs
               }
             ]
           }}
         />
     )
   }
-}
+
+  export default LineChart;

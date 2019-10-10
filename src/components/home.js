@@ -25,7 +25,7 @@ export default class Home extends React.Component {
         <Link to="/instructor"><Button variant="info" size="lg" block>Instructor</Button></Link><br />
               <Link to="/student"><Button variant="info" size="lg" block>Students</Button></Link>
           <br/>
-          
+          <Link to="/about"><Button variant="info" size="lg" block>About Us</Button></Link>
         </Col>
       </Row>
     </Container>

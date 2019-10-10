@@ -1,7 +1,7 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import Button from 'react-bootstrap/Button'
+import {Button, Container, Row, Col} from 'react-bootstrap'
 import BarGraph from './BarGraph.js';
+
 
 export default class History extends React.Component {
   constructor(props) {
@@ -31,23 +31,31 @@ export default class History extends React.Component {
 
   render() {
     return (
-      <div>
-        <Button onClick={this.clearHistory}>Clear All</Button>
+      <Container>
+        
+        <Row>
+          <Col>
+        <h1>Saved Questions</h1>
+        <Button variant="danger" onClick={this.clearHistory}>Clear All</Button>
         {this.state.pastResults === []? <p>There Are No Results Saved</p> : 
           this.state.pastResults.map((topic,idx)=>{
             let time = new Date(topic.time).toDateString() + ' ' + new Date(topic.time).toLocaleTimeString();
             return (
               <div key={idx}>
-                <Button onClick={this.deleteOneResult} value={idx}>Delete Result</Button>
+                <hr/>
                 <h2>{topic.topic}</h2>
                 <p>{time}</p>
                 <BarGraph data={topic}></BarGraph>
+                <Button variant="danger" size="sm" onClick={this.deleteOneResult} value={idx}>Delete</Button>
+                
               </div>
             )
           })
       }
+      </Col>
+      </Row>
         
-      </div>
+      </Container>
     )
   }
 }

@@ -6,7 +6,8 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import BarGraph from './BarGraph.js';
 import VolumeSlider from './Slider.js';
-import { async } from 'q';
+import Button from 'react-bootstrap/Button'
+
 
 export default class Student extends React.Component {
 
@@ -48,31 +49,38 @@ export default class Student extends React.Component {
   }
 
   render() {
+
+    let evenNumber = (Math.floor(this.props.data.temperatureAvg * 10))/10;
+
     return (
       <Container>
         <Row className="justify-content-md-center">
           <Col>
-            <h1>Student</h1>
+          <h1>Student View</h1>
+          <Form onSubmit={this.sendQuestion}
+          style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }}>
+          <Form.Row>
+            <Form.Group as={Col}>
+
+            <VolumeSlider handleSliderChange={this.handleSliderChange}></VolumeSlider>
+              
+              <Button className="center-block" variant="info" type="submit" value="Submit" >Submit</Button>
+
+            </Form.Group>
+          </Form.Row>
+        </Form>
+          </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Col>
             <h2>{this.props.data.topic}</h2>
             <BarGraph data={this.props.data}></BarGraph>
           </Col>
         </Row>
-        <Form onSubmit={this.sendQuestion}
-          style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }}>
-          <Form.Row>
-            <Form.Group as={Col}>
-              <VolumeSlider handleSliderChange={this.handleSliderChange}></VolumeSlider>
+        
 
-              <input type="submit" value="Submit" />
-            </Form.Group>
-          </Form.Row>
-        </Form>
-
-        {/* Student's Current Temperature/Understanding of Lecture */}
-        {/* See readme for all the lovely 'bootsrap for react' resources used */}
-
-        <h2>Temperature</h2>
-        <p>Current Avg Temp {this.props.data.temperatureAvg}</p>
+        <h2>How Do You Feel?</h2>
+        <p>Current Avg Temp {evenNumber}</p>
 
         <Row className="justify-content-md-center" style={{ margin: 'auto', position: 'relative', minWidth: 380, maxWidth: 400 }}>
 
