@@ -88,4 +88,11 @@ body {
 .footer a {
   color: rgb(236, 236, 236);
   text-decoration: none;
+
+}
+
+.hover-effect:hover{
+  background-color: darkgray;
+  border-radius: 50%;
+  padding: 2px;
 }

@@ -31,7 +31,7 @@ export default class Student extends React.Component {
       });
     }
 
-    this.handleSliderChange = (value) =>{
+    this.handleSliderChange = (value) => {
       let newState = this.state;
       newState.voteValue = value;
       this.setState(newState);
@@ -61,9 +61,11 @@ export default class Student extends React.Component {
           style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }}>
           <Form.Row>
             <Form.Group as={Col}>
+
             <VolumeSlider handleSliderChange={this.handleSliderChange}></VolumeSlider>
               
               <Button className="center-block" variant="info" type="submit" value="Submit" >Submit</Button>
+
             </Form.Group>
           </Form.Row>
         </Form>
@@ -82,7 +84,7 @@ export default class Student extends React.Component {
 
         <Row className="justify-content-md-center" style={{ margin: 'auto', position: 'relative', minWidth: 380, maxWidth: 400 }}>
 
-          <Col  >
+          <Col className="hover-effect" >
             <Form className="text-center">
               <label>
                 <input onClick={this.updateTemp} type="submit"
@@ -100,7 +102,7 @@ export default class Student extends React.Component {
             </Form>
           </Col>
 
-          <Col>
+          <Col className="hover-effect">
             <Form className="text-center">
               <label>
                 <input type="submit" onClick={this.updateTemp} name="vote" value="1"
@@ -117,13 +119,14 @@ export default class Student extends React.Component {
             </Form >
           </Col>
 
-          <Col >
+          <Col className="hover-effect" >
             <Form className="text-center">
               <label>
                 <input type="submit" onClick={this.updateTemp} name="vote" value="2"
                   style={{
                     position: "absolute",
-                    opacity: "0"
+                    opacity: "0",
+                    backgroundColor: this.state.bgColor
                   }} />
                 <i className="fas fa-meh"
                   style={{ fontSize: "2em", color: "DarkOrange" }}>
@@ -132,7 +135,7 @@ export default class Student extends React.Component {
             </Form>
           </Col>
 
-          <Col >
+          <Col className="hover-effect">
             <Form className="text-center">
               <label>
                 <input type="submit" onClick={this.updateTemp} name="vote" value="3"
@@ -146,7 +149,7 @@ export default class Student extends React.Component {
             </Form>
           </Col>
 
-          <Col >
+          <Col className="hover-effect">
             <Form className="text-center" >
               <label>
                 <input type="submit" onClick={this.updateTemp} name="vote" value="4"
@@ -160,7 +163,8 @@ export default class Student extends React.Component {
             </Form>
           </Col>
 
-          <Col >
+          <Col
+            className="hover-effect">
             <Form className="text-center">
               <label>
                 <input type="submit" onClick={this.updateTemp} name="vote" value="5"
