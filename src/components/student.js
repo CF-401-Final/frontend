@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import BarGraph from './BarGraph.js';
+import VolumeSlider from './Slider.js';
 
 export default class Student extends React.Component {
 
@@ -104,6 +105,7 @@ export default class Student extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
+        <VolumeSlider></VolumeSlider>
       </Container>
     )
   }
