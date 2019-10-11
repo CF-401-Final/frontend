@@ -14,7 +14,7 @@ export default class Home extends React.Component {
       <Row className="justify-content-md-center">
       <Col s={12} md={7}>
         <h1>Hands of Five</h1>
-        <p><i className="fas fa-hand-paper handsFive"></i></p>
+        <p><img src="/images/hands6.gif" alt="Hand" width="50" /></p>
         
         <p>Hands of Five is an app that allows classroom instructors to gauge the understanding of their students in real time.</p>
           
@@ -22,10 +22,10 @@ export default class Home extends React.Component {
       </Row>
       <Row className="justify-content-md-center">
         <Col md={5}>
-        {/* <Link to="/instructor"><Button variant="info" size="lg" block>Instructor</Button></Link><br /> */}
-              <Link to="/student"><Button variant="info" size="lg" block>Students</Button></Link>
+        {/* <Link to="/instructor"><Button variant="info" size="lg" block>Instructor</Button></Link><br />  */}
+              <Link to="/student"><Button variant="primary" size="lg" block>Students</Button></Link>
           <br/>
-          <Link to="/about"><Button variant="info" size="lg" block>About Us</Button></Link>
+          <Link to="/about"><Button variant="primary" size="lg" block>About Us</Button></Link>
         </Col>
       </Row>
     </Container>

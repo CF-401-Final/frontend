@@ -30,7 +30,7 @@ const DoughnutChart = (props) => {
           }
         >
         </Doughnut>
-        <hr></hr>
+        
       </div>
     )
   }

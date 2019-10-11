@@ -44,7 +44,16 @@ export default class Instructor extends React.Component {
         <Row className="justify-content-md-center">
           <Col >
             <h1>Instructor View</h1>
-            <Form type="submit" onSubmit={this.handle} name="topic" style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }} >
+            
+
+            <Form inline className="justify-content-center" type="submit" onSubmit={this.handle} name="topic">
+              <Form.Label>Topic: </Form.Label>
+              <Form.Control name="topic" type="text" placeholder="e.g. How was lab today?" className="mr-sm-2" />
+              <Button type="submit" >Post</Button>
+            </Form>
+
+          {/* 
+          <Form type="submit" onSubmit={this.handle} name="topic" style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }} >
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Topic: </Form.Label>
@@ -52,13 +61,19 @@ export default class Instructor extends React.Component {
             </Form.Group>
             <Button type="submit" >Post</Button>
           </Form.Row>
-        </Form>
-            <h2>{this.props.data.topic} <br/> <Button onClick={this.saveToLocalStorage}>Save Topic</Button><Link to="/history"> <Button variant="info" >View Saved Topics</Button></Link></h2>
+        </Form> */}
 
-            
+            <h2>{this.props.data.topic}</h2>
 
             <BarGraph data={this.props.data}></BarGraph>
+            <p><br /><Button onClick={this.saveToLocalStorage} size="sm" >Save Topic</Button><Link to="/history"> <Button variant="info" size="sm" >View Saved Topics</Button></Link></p>
+
+            <hr />
+
             <DoughnutChart data={this.props.data}></DoughnutChart>
+
+            <hr />
+            
           </Col>
         </Row>
         {/* https://react-bootstrap.github.io/components/forms/ */}
