@@ -46,7 +46,7 @@ export default class Instructor extends React.Component {
             <h1>Instructor View</h1>
             
 
-            <Form inline className="justify-content-center">
+            <Form inline className="justify-content-center" type="submit" onSubmit={this.handle} name="topic">
               <Form.Label>Topic: </Form.Label>
               <Form.Control name="topic" type="text" placeholder="e.g. How was lab today?" className="mr-sm-2" />
               <Button type="submit" >Post</Button>
