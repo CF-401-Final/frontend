@@ -64,8 +64,8 @@ export default class Student extends React.Component {
             <Form.Group as={Col}>
 
             <VolumeSlider handleSliderChange={this.handleSliderChange}></VolumeSlider>
-              
-              <Button className="center-block" variant="primary" type="submit" value="Submit" >Submit</Button>
+              <br />
+              <Button className="center-block" variant="primary" type="submit" value="Submit" size="lg" >Submit</Button>
 
             </Form.Group>
           </Form.Row>
@@ -80,8 +80,8 @@ export default class Student extends React.Component {
         
         <hr />
         
-        <h2>How Do You Feel?</h2><br />
-        {/* <p>Current Avg Temp {evenNumber}</p> */}
+        <h2>How Do You Feel?</h2>
+        <p>Current classroom average: {evenNumber}</p> <br />
 
         <Row className="justify-content-md-center" style={{ margin: 'auto', position: 'relative', minWidth: 380, maxWidth: 400 }}>
 
