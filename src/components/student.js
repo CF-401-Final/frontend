@@ -57,6 +57,7 @@ export default class Student extends React.Component {
         <Row className="justify-content-md-center">
           <Col>
           <h1>Student View</h1>
+          <h2>{this.props.data.topic}</h2>
           <Form onSubmit={this.sendQuestion}
           style={{ margin: 'auto', position: 'relative', minWidth: 100, maxWidth: 300 }}>
           <Form.Row>
@@ -64,7 +65,7 @@ export default class Student extends React.Component {
 
             <VolumeSlider handleSliderChange={this.handleSliderChange}></VolumeSlider>
               
-              <Button className="center-block" variant="info" type="submit" value="Submit" >Submit</Button>
+              <Button className="center-block" variant="primary" type="submit" value="Submit" >Submit</Button>
 
             </Form.Group>
           </Form.Row>
@@ -73,14 +74,14 @@ export default class Student extends React.Component {
         </Row>
         <Row className="justify-content-md-center">
           <Col>
-            <h2>{this.props.data.topic}</h2>
             <BarGraph data={this.props.data}></BarGraph>
           </Col>
         </Row>
         
-
-        <h2>How Do You Feel?</h2>
-        <p>Current Avg Temp {evenNumber}</p>
+        <hr />
+        
+        <h2>How Do You Feel?</h2><br />
+        {/* <p>Current Avg Temp {evenNumber}</p> */}
 
         <Row className="justify-content-md-center" style={{ margin: 'auto', position: 'relative', minWidth: 380, maxWidth: 400 }}>
 

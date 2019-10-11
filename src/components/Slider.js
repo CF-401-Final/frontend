@@ -28,7 +28,7 @@ export default class VolumeSlider extends React.Component {
       return (
         <div className="sliderForm" >
         
-        <img  src={this.state.volume === -1?  `./images/${this.state.handImages[0]}.jpg`:`./images/${this.state.handImages[this.state.volume]}.jpg`} alt="Hands of Five" height="142" width="142"/>
+        <img  src={this.state.volume === -1?  `./images/${this.state.handImages[0]}.gif`:`./images/${this.state.handImages[this.state.volume]}.gif`} alt="Hands of Five" height="142" width="142"/>
 
         <Slider
           className="slider"
